@@ -1,0 +1,101 @@
+.pattern-editor-component .rightMenu {
+    width: 142px;
+    top: 0;
+    left: 0;
+    position: fixed; // background: red;
+    transform: translate(10%, -50%);
+    animation-duration: 0.2s;
+    animation-name: bounceIn;
+    z-index: 999999;
+    .ant-menu-item,
+    .ant-menu-submenu,
+    .ant-menu-submenu-title {
+        background: #fafafa;
+        color: #666;
+        font-size: 14px;
+        &:hover {
+            color: #00cccb;
+            .icon {
+                &[type='move'] {
+                    background-image: url('../../../images/Pattern/menu/move_active.png');
+                }
+                &[type='rotate'] {
+                    background-image: url('../../../images/Pattern/menu/rotate_active.png');
+                }
+                &[type='material'] {
+                    background-image: url('../../../images/Pattern/menu/material_active.png');
+                }
+                &[type='zindex'] {
+                    background-image: url('../../../images/Pattern/menu/zindex_active.png');
+                }
+                &[type='delete'] {
+                    background-image: url('../../../images/Pattern/menu/delete_active.png');
+                }
+                &[type='save'] {
+                    background-image: url('../../../images/Pattern/menu/save_active.png');
+                }
+                &[type='copy'] {
+                    background-image: url('../../../images/Pattern/menu/copy_active.png');
+                }
+                &[type='gap'] {
+                    background-image: url('../../../images/Pattern/menu/gap_active.png');
+                }
+                &[type='boundary'] {
+                    background-image: url('../../../images/Pattern/menu/boundary_active.png');
+                }
+            }
+        }
+        .icon {
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            margin-right: 7px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            vertical-align: text-bottom;
+            position: relative;
+            top: -1px;
+            &[type='move'] {
+                background-image: url('../../../images/Pattern/menu/move.png');
+            }
+            &[type='rotate'] {
+                background-image: url('../../../images/Pattern/menu/rotate.png');
+            }
+            &[type='material'] {
+                background-image: url('../../../images/Pattern/menu/material.png');
+            }
+            &[type='zindex'] {
+                background-image: url('../../../images/Pattern/menu/zindex.png');
+            }
+            &[type='delete'] {
+                background-image: url('../../../images/Pattern/menu/delete.png');
+            }
+            &[type='save'] {
+                background-image: url('../../../images/Pattern/menu/save.png');
+            }
+            &[type='copy'] {
+                background-image: url('../../../images/Pattern/menu/copy.png');
+            }
+            &[type='gap'] {
+                background-image: url('../../../images/Pattern/menu/gap.png');
+            }
+            &[type='boundary'] {
+                background-image: url('../../../images/Pattern/menu/boundary.png');
+            }
+        }
+    }
+    .ant-menu {
+        border: 1px solid #e6e6e6;
+    }
+}
+
+@keyframes bounceIn {
+    from {
+        transform: translate(10%, -50%) scale3d(0.3, 0.3, 0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translate(10%, -50%) scale3d(1, 1, 1);
+    }
+}

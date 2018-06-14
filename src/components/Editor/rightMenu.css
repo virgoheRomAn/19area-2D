@@ -1,0 +1,54 @@
+.rightMenu{
+    width: 122px;
+    position: fixed;
+}
+.rightMenu p{
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    border:  1px solid  #979797;
+    border-radius: 3px;
+    width:120px;
+    margin-bottom: 4px;
+    line-height: 30px;
+    color:#5c5c5c;
+    background: #FAFAFA;
+    cursor: pointer;
+}
+.rightMenu p:nth-child(2):hover{
+    background: #d3f3fe;
+}
+.rightMenu p:nth-child(3):hover{
+    background: #d3f3fe;
+}
+.rightMenu p span{
+    float: left;
+    height: 30px;
+    width: 35px;
+}
+.rightMenu p input{
+    float: left;
+    width: 40px;
+    height: 20px;
+    border: none;
+    color: #5c5c5c;
+    background: #e7e7e7;
+    margin-top: 4px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+.rightMenu p input:focus{
+    color: blue;
+    border: none;
+    background: #ffffff;
+}
+.icon_IVS{
+    background-image: url('../../images/icon_IVS.png')
+}
+.icon_split{
+    background-image: url('../../images/icon_split.png')
+}
+.icon_delete{
+    background-image: url('../../images/icon_delete.png')
+}

@@ -1,0 +1,148 @@
+//用户操作
+.user-operation{
+  position: relative;
+  z-index: 20000;
+  display:block;
+  width: 100%;
+  height: 100%;
+  .bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    height: 100%;
+    >span{
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 20000;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.61);
+    }
+  }
+}
+
+//登录注册
+.login-bar,.register-bar,.forget-bar{
+    display: block;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    // background: url("../../images/editer-login-bg.jpg") no-repeat top;
+    // background-size: cover;
+
+    .header-box {
+      position: relative;
+      top: 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      &>span {
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #00cccb;
+        margin-bottom: 40px;
+      }
+    }  
+  
+    .cont-box {
+      position: relative;
+      z-index: 20;
+      .user-box {
+        display: block;
+        width: 440px;
+        margin: 0 auto;
+        .user-cont {
+          display: block;
+          padding: 60px 54px;
+          border-radius: 5px;
+          background: white;
+          overflow: hidden;
+          &.radius{
+            border-radius: 5px 5px 0 0;
+          }
+        }
+        .login-tips{
+          position: relative;
+          display: block;
+          width: 100%;
+          margin-top: 10px;
+          font-size: 14px;
+          a{
+            color: #ffffff;
+          }
+          .tm-uline{
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .btn-big{
+        margin-top: 35px;
+        a.fb-btn{
+          letter-spacing: 2px;
+          font-size: 18px;
+        }
+      }
+    }
+    
+    .user-intro{
+      border-radius: 0 0 5px 5px;
+      background: #fbfbfb;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: #999999;
+      > a {
+        color: #00cccb;
+      }
+    }
+  }
+
+  .register-bar .user-cont,.forget-bar .user-cont{
+    padding-bottom: 30px !important;
+    .register-agreement{
+      margin: 15px 0 0 0;
+      font-size: 14px;
+      color: #999999;
+      text-align: center;
+      a{
+        color: #333333;
+        &:hover{
+          color: #00cccb;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  //用户协议
+  .agreement-cont {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 30px 20px;
+    overflow: auto;
+    h2 {
+      font-size: 24px;
+      color: #333333;
+      text-align: center;
+      margin: 30px 0 20px;
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      line-height: 24px;
+      color: #999999;
+    }
+  }

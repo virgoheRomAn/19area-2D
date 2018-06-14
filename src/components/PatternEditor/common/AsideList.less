@@ -1,0 +1,80 @@
+#patternMainComponent {
+  .aside-list {
+    width: 260px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 98px;
+    > .content {
+      padding: 0 20px;
+    }
+    > .content {
+      flex: 1;
+      overflow: auto;
+      .ant-spin-container {
+        > .items {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          > .tip {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+          }
+          > .item {
+            width: 100px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            > .img {
+              width: 100px;
+              height: 100px;
+              background-color: #eee;
+              background-size: cover;
+              background-position: center;
+              margin-bottom: 6px;
+            }
+          }
+        }
+      }
+    }
+    > .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      > span {
+        user-select: none;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+#body {
+  .ant-popover.pageTo {
+    .ant-popover-buttons {
+      margin: 0;
+    }
+    .ant-popover-message {
+      padding: 0;
+    }
+    .ant-popover-inner-content {
+      display: flex;
+      align-items: center;
+    }
+    .ant-btn.ant-btn-sm:first-child {
+      display: none;
+    }
+    .ant-popover-message-title {
+      padding: 0;
+    }
+    .anticon.anticon-exclamation-circle {
+      display: none;
+    }
+    .ant-input-number {
+      margin: 0 5px;
+    }
+  }
+}

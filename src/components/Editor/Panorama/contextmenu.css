@@ -1,0 +1,29 @@
+.ContextMenu_camera {
+    /* height: 88px; */
+    width: 95px;
+    background-color: #FDFDFD;
+    border: none;
+    position: fixed;
+    top: 200px;
+    left: 100px;
+    border-radius: 5px;
+}
+
+.ContextMenu_camera p {
+    font-size: 14px;
+    text-align: center;
+    line-height: 45px;
+    color: #666666;
+}
+
+.ContextMenu_camera p.disable {
+    color: #CCC;
+}
+
+.ContextMenu_camera p:first-child {
+    margin-top: 0px;
+}
+
+.ContextMenu_camera p:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,353 @@
+@import "Variable.less";
+//基础元素位置
+.d-block {
+    display: block;
+}
+
+.d-in-block {
+    display: inline-block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-show {
+    .d-block !important;
+}
+
+.d-hide {
+    .d-none !important;
+}
+
+.d-center {
+    margin: auto;
+}
+
+.d-table {
+    display: table;
+    width: 100%;
+    .cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .rower {
+        display: table-row;
+    }
+}
+
+.layer-margin();
+.layer-padding();
+.layer-margin(@start: 0, @end: 40) {
+    .fn-mt(@n: @start) when (@n <=@end) {
+        .mt-@{n} {
+            margin-top: unit(@n, px) !important;
+        }
+        .fn-mt(@n+5);
+    }
+    .fn-mr(@n: @start) when (@n <=@end) {
+        .mr-@{n} {
+            margin-right: unit(@n, px) !important;
+        }
+        .fn-mr(@n+5);
+    }
+    .fn-mb(@n: @start) when (@n <=@end) {
+        .mb-@{n} {
+            margin-bottom: unit(@n, px) !important;
+        }
+        .fn-mb(@n+5);
+    }
+    .fn-ml(@n: @start) when (@n <=@end) {
+        .ml-@{n} {
+            margin-left: unit(@n, px) !important;
+        }
+        .fn-ml(@n+5);
+    }
+    .fn-mar-all(@n: @start) when (@n <=@end) {
+        .mar-all-@{n} {
+            margin: unit(@n, px) !important;
+        }
+        .fn-mar-all(@n+5);
+    }
+    .fn-mt;
+    .fn-mr;
+    .fn-mb;
+    .fn-ml;
+    .fn-mar-all;
+}
+
+.layer-padding(@start: 0, @end: 40) {
+    .fn-pt(@n: @start) when (@n <=@end) {
+        .pt-@{n} {
+            padding-top: unit(@n, px) !important;
+        }
+        .fn-pt(@n+5);
+    }
+    .fn-pr(@n: @start) when (@n <=@end) {
+        .pr-@{n} {
+            padding-right: unit(@n, px) !important;
+        }
+        .fn-pr(@n+5);
+    }
+    .fn-pb(@n: @start) when (@n <=@end) {
+        .pb-@{n} {
+            padding-bottom: unit(@n, px) !important;
+        }
+        .fn-pb(@n+5);
+    }
+    .fn-pl(@n: @start) when (@n <=@end) {
+        .pl-@{n} {
+            padding-left: unit(@n, px) !important;
+        }
+        .fn-pl(@n+5);
+    }
+    .fn-pad-all(@n: @start) when (@n <=@end) {
+        .pad-all-@{n} {
+            padding: unit(@n, px) !important;
+        }
+        .fn-pad-all(@n+5);
+    }
+    .fn-pt;
+    .fn-pr;
+    .fn-pb;
+    .fn-pl;
+    .fn-pad-all;
+}
+
+/*浮动-float*/
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fn {
+    float: none;
+}
+
+.clearfix {
+    display: block;
+    clear: both;
+    *zoom: 1;
+    &:after {
+        display: block;
+        content: "";
+        clear: both;
+        line-height: 0;
+    }
+}
+
+* html .clearfix {
+    zoom: 1;
+}
+
+*:first-child+html .clearfix {
+    zoom: 1;
+}
+
+/*定位-position*/
+
+.p-rel {
+    position: relative;
+    .fn-set-index;
+}
+
+.p-abs {
+    position: absolute;
+    .fn-set-index;
+}
+
+.p-fixed {
+    position: fixed;
+    .fn-set-index;
+}
+
+.relative {
+    .p-rel !important;
+}
+
+.absolute {
+    .p-abs !important;
+}
+
+.fixed {
+    .p-fixed !important;
+}
+
+.abs-tl {
+    .p-abs;
+    top: 0;
+    left: 0;
+}
+
+.abs-tr {
+    .p-abs;
+    top: 0;
+    right: 0;
+}
+
+.abs-bl {
+    .p-abs;
+    bottom: 0;
+    left: 0;
+}
+
+.abs-br {
+    .p-abs;
+    bottom: 0;
+    right: 0;
+}
+
+.abs-tl-mid {
+    .p-abs;
+    top: 50%;
+    left: 50%;
+}
+
+.abs-tr-mid {
+    .p-abs;
+    top: 50%;
+    right: 50%;
+}
+
+.abs-t-mid-l {
+    .p-abs;
+    top: 50%;
+    left: 0;
+}
+
+.abs-t-mid-r {
+    .p-abs;
+    top: 50%;
+    right: 0;
+}
+
+.fn-set-index(@n: 20) {
+    z-index: @n;
+}
+
+//设置z-index（z-index-100  z-index-11）
+.fn-set-index-list(@n: 100, @i: 11) when (@i =< @n) {
+    .z-index-@{i} {
+        z-index: @i  !important;
+    }
+    .fn-set-index-list(@n, (@i+1));
+}
+
+.fn-set-index-list();
+/*基础宽高*/
+
+.d-width {
+    .d-block;
+    width: 100%;
+}
+
+.d-height {
+    height: 100%;
+}
+
+.d-layer {
+    .d-block;
+    width: 100%;
+    height: 100%;
+}
+
+.d-image {
+    .d-width;
+    img {
+        .d-layer;
+    }
+}
+
+.d-overflow-hide {
+    overflow: hidden;
+}
+
+.d-overflow-hide-x {
+    overflow-x: hidden;
+}
+
+.d-overflow-hide-y {
+    overflow-y: hidden;
+}
+
+.overflow {
+    .d-layer;
+    overflow: auto;
+}
+
+.overflow-hidden {
+    .d-layer;
+    overflow: hidden;
+}
+
+.fn-set-wrap(@w) {
+    .p-rel;
+    .d-block;
+    width: @w;
+}
+
+.fn-set-layout(@d, @w, @h, @p: relative) {
+    position: e(@p);
+    display: e(@d);
+    width: @w;
+    height: @h;
+}
+
+// 图标
+.e-icon {
+    .p-rel;
+    .d-block;
+    background: url("@{imgPath}/icon/sprite.png") no-repeat;
+    background-size: 500px 500px;
+}
+
+// 按钮
+.e-btn {
+    .p-rel;
+    .d-block;
+    width: 100%;
+    .text-mid(42px);
+    text-align: center;
+    font-size: @s-15;
+    color: @text-color;
+    &.radius {
+        border-radius: 3px;
+        &.rd-5 {
+            border-radius: 5px;
+        }
+    }
+    &.small {
+        .text-mid(32px);
+        font-size: @s-13;
+    }
+    &.background {
+        border: 0 none;
+        &.green {
+            background: @main-color;
+            color: @white;
+        }
+    }
+}
+
+// mixin模式
+.text-mid(@h) {
+    height: @h;
+    line-height: @h;
+}
+
+.text-mid-border(@h, @b: 2) {
+    height: @h;
+    line-height: @h - @b;
+}
+
+.border-radius(@rd: 5px) {
+    border-radius: @rd;
+}

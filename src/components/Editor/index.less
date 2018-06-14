@@ -1,0 +1,52 @@
+.editor-component {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  svg {
+    height: 100%;
+    width: 100%; // border: 1px solid red;
+    user-select: none;
+    .debug-point {
+      pointer-events: none;
+    }
+  }
+}
+.btn_bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  text-align: center;
+  button{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+    background-color: #00CBCA;
+    border-color: #00CBCA;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    line-height: 1;
+    text-align: center;
+    font-weight: 500;
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgb(217,217,217);
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+}
+.addPortal{
+  height: 52px;
+  width: 162px;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  margin-top:-25px;
+  margin-left:-50px;
+  background: url("../../images/sheet.png") -15px -15px;
+  cursor: pointer;
+  &:hover{
+    background: url("../../images/sheet2.png") -15px -15px;
+  }
+}

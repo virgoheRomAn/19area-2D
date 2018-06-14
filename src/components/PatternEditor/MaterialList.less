@@ -1,0 +1,42 @@
+.material-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  > .header {
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1px solid @bdColor;
+    padding: 12px 20px;
+    > .search-btn {
+      margin-left: 7px;
+      padding: 0 8px;
+    }
+    >.my-material-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //> img {
+      //  height: 14px;
+      //  margin-right: 5px;
+      //  transition: all .3s;
+      //  opacity: 1;
+      //}
+      //&:hover > img {
+      //  opacity: .2;
+      //}
+    }
+  }
+  > .select {
+    margin-bottom: 14px;
+    padding: 12px 20px;
+
+    > .ant-select {
+      width: 100%;
+    }
+  }
+  > .aside-list {
+    flex: 1;
+  }
+}

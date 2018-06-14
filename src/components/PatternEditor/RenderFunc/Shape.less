@@ -1,0 +1,27 @@
+.pattern-editor-component .shapes .shape {
+    cursor: pointer;
+    &:hover,
+    &.active {
+        >.path {
+            stroke: #00FFFE;
+        }
+        >.lines>.line {
+            stroke: #00FFFE;
+        }
+    }
+    >.lines>.line {
+        opacity: 0;
+        &:hover,
+        &.active {
+            stroke: #00F;
+        }
+    }
+    >.paths {
+        >path {
+            stroke: #acacac;
+            &:hover {
+                stroke: #00FFFE;
+            }
+        }
+    }
+}

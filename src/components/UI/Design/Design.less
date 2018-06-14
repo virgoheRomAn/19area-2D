@@ -1,0 +1,1002 @@
+@import (reference) "../../../less/Common.less";
+//开始设计头部
+.editor-header {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    z-index: 30;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: #545454;
+    font-size: 14px;
+    .container {
+        .p-rel;
+        .d-block;
+        line-height: 50px;
+        .menu {
+            .d-width;
+            ul {
+                .d-width;
+                li {
+                    display: block;
+                    float: left;
+                    >a,
+                    >.setting {
+                        display: block;
+                        padding: 0 26px;
+                        color: #e0e0e0;
+                        font-size: 14px;
+                    }
+                    >a {
+                        &.active,
+                        &:hover {
+                            color: @main-color;
+                        }
+                    }
+                    >.setting {
+                        position: relative;
+                        &.active {
+                            >span {
+                                color: @main-color;
+                            }
+                        }
+                        >span {
+                            display: block;
+                            color: #ddd;
+                            cursor: pointer;
+                            &:hover {
+                                color: @main-color;
+                            }
+                        }
+                        .setting-nav {
+                            position: absolute;
+                            top: 50px;
+                            left: 0;
+                            display: none;
+                            min-width: 124px;
+                            background: #fff;
+                            padding: 8px 0 0 25px;
+                            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+                            &.save-nav {
+                                min-width: 80px;
+                                padding: 8px 0;
+                                text-align: center;
+                            }
+                            >a {
+                                position: relative;
+                                display: block;
+                                color: #999;
+                                height: 32px;
+                                line-height: 32px;
+                                &.hide {
+                                    display: none;
+                                }
+                                &.active,
+                                &:hover {
+                                    color: @main-color;
+                                }
+                                &.none {
+                                    // background: #f5f5f5;
+                                    color: #d8d8d8;
+                                    cursor: default;
+                                    &:hover {
+                                        span {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+                            >.setting-nav-item {
+                                position: relative;
+                                padding: 0 15px 8px 0;
+                                &.active {
+                                    >span {
+                                        color: @main-color;
+                                        &:after {
+                                            border-color: transparent transparent transparent @main-color;
+                                        }
+                                    }
+                                }
+                                >span {
+                                    position: relative;
+                                    padding-right: 20px;
+                                    display: block;
+                                    color: #999;
+                                    height: 32px;
+                                    line-height: 32px;
+                                    cursor: pointer;
+                                    &:after {
+                                        position: absolute;
+                                        top: 50%;
+                                        right: 0;
+                                        margin-top: -5px;
+                                        content: "";
+                                        display: block;
+                                        border-width: 5px 7px;
+                                        border-style: solid;
+                                        border-color: transparent transparent transparent #aaa;
+                                    }
+                                    &:hover {
+                                        color: @main-color;
+                                        &:after {
+                                            border-color: transparent transparent transparent @main-color;
+                                        }
+                                    }
+                                }
+                                >.setting-nav-item-nav {
+                                    position: absolute;
+                                    top: -8px;
+                                    left: 85px;
+                                    display: none;
+                                    width: 112px;
+                                    background: #fff;
+                                    padding: 8px 25px 8px 20px;
+                                    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+                                    >label {
+                                        height: 32px;
+                                        line-height: 32px;
+                                        cursor: pointer;
+                                        >span {
+                                            color: #999;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .float-menu {
+            .abs-tr;
+            top: 60px;
+            right: 215px;
+            height: 36px;
+            a {
+                position: relative;
+                .d-in-block;
+                margin: 0 5px;
+                background: @g-f5;
+                width: 82px;
+                .text-mid-border(32px);
+                color: @999;
+                border: 1px solid @ccc;
+                border-radius: 2px;
+                text-align: center;
+                transition: none;
+                input[type="file"] {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    font-size: 0; //解决鼠标样式-手指
+                    cursor: pointer;
+                }
+                &.none {
+                    background: #eee;
+                    border: 1px solid #ddd;
+                    color: #ccc;
+                    cursor: default;
+                }
+                &.active:hover {
+                    background: @main-color;
+                    border: 1px solid @main-color;
+                    color: @white;
+                }
+            }
+        }
+    }
+}
+
+//开始设左侧计模型列表
+.editor-left {
+    .d-block;
+    .abs-tl;
+    z-index: 20;
+    width: 394px;
+    height: 100%;
+    padding-top: 106px;
+    transform: translateX(0);
+    transition: transform .3s ease;
+    &.active {
+        transform: translateX(-100%);
+    }
+    .container-content {
+        position: relative;
+        .d-layer;
+        background: @main-gray;
+        border-right: 1px solid @ddd;
+        >a.handle-btn {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            z-index: 10;
+            margin-top: -20px;
+            width: 20px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .tab-box {
+            .d-layer;
+            .p-rel;
+            padding-top: 60px;
+            .tab-nav {
+                .abs-tl;
+                .d-width;
+                border-bottom: 1px solid @666;
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 100%;
+                    height: 60px;
+                    padding: 0 20px;
+                    li {
+                        display: flex;
+                        align-items: center;
+                        width: 50%;
+                        line-height: 60px;
+                        text-align: center;
+                        &:nth-child(1) {
+                            a.active,
+                            a:hover {
+                                i {
+                                    background-position: -78px -9px;
+                                }
+                            }
+                        }
+                        &:nth-child(2) {
+                            a.active,
+                            a:hover {
+                                i {
+                                    background-position: -43px -9px;
+                                }
+                            }
+                        }
+                        &:nth-child(3) {
+                            a.active,
+                            a:hover {
+                                i {
+                                    background-position: -10px -10px;
+                                }
+                            }
+                        }
+                        a {
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: center;
+                            color: @ccc;
+                            font-size: @s-14;
+                            &.active,
+                            &:hover {
+                                color: @main-color;
+                            }
+                            i {
+                                .p-rel;
+                                .d-in-block;
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+            .tab-container {
+                @pad-left: 96px;
+                .p-rel;
+                .d-layer;
+                padding-left: @pad-left;
+                .left {
+                    .abs-tl;
+                    width: @pad-left;
+                    .menu {
+                        padding: 15px 0;
+                        .parent-menu {
+                            .p-rel;
+                            .d-block;
+                            padding: 5px 10px 5px 17px;
+                            color: @text-color;
+                            font-size: @s-14;
+                            cursor: pointer;
+                            &.active {
+                                >span {
+                                    .d-block;
+                                    color: @main-color;
+                                }
+                                &:before {
+                                    display: block;
+                                    content: "";
+                                    border-width: 7px 9px;
+                                    border-style: solid;
+                                    border-color: transparent transparent transparent @main-color;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0px;
+                                    margin-top: -7px;
+                                }
+                            }
+                            &:hover {
+                                >span {
+                                    .d-block;
+                                    color: @main-color;
+                                }
+                                .son-menu {
+                                    display: block;
+                                }
+                                &:before {
+                                    display: block;
+                                    content: "";
+                                    border-width: 7px 9px;
+                                    border-style: solid;
+                                    border-color: transparent transparent transparent @main-color;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0px;
+                                    margin-top: -7px;
+                                }
+                            }
+                            .son-menu {
+                                position: absolute;
+                                top: -10px;
+                                left: @pad-left;
+                                background: rgba(84, 84, 84, 0.9);
+                                width: 298px;
+                                min-height: 300px;
+                                display: none;
+                                padding: 10px 0;
+                                >span {
+                                    .p-rel;
+                                    .d-block;
+                                    padding: 0 10px 0 17px;
+                                    color: @text-color;
+                                    font-size: @s-14;
+                                    .text-mid(30px);
+                                    cursor: pointer;
+                                    &.active,
+                                    &:hover {
+                                        color: @main-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .content {
+                        .abs-tl;
+                        left: 97px;
+                        background: rgba(84, 84, 84, 0.9);
+                        width: 296px;
+                        height: 300px;
+                        padding: 15px 20px;
+                        display: none;
+                        a {
+                            .d-block;
+                            color: @text-color;
+                            font-size: @s-14;
+                            .text-mid(30px);
+                            &:hover {
+                                color: @main-color;
+                            }
+                        }
+                    }
+                }
+                .right {
+                    position: relative;
+                    .d-layer;
+                    background: @g-f2;
+                    .search {
+                        border-bottom: 1px solid #dddddd;
+                        height: 60px;
+                        padding: 14px 0;
+                        .search-content {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            padding: 0 90px 0 25px;
+                            .ht-search-cont {
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                width: 187px;
+                                height: 100%;
+                                background-color: #ffffff;
+                                border: 1px solid #dddddd;
+                                >label {
+                                    padding-left: 8px;
+                                }
+                            }
+                            .ht-search-btn {
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                width: 50px;
+                                height: 30px;
+                                margin-right: 25px;
+                                >a.fb-btn {
+                                    height: 30px;
+                                    line-height: 30px;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                    .content {
+                        position: relative;
+                        padding: 15px 0 50px;
+                        width: 100%;
+                        height: calc(~"100% - 60px");
+                        &.big {
+                            .tab-panel {
+                                padding-top: 45px;
+                            }
+                        }
+                        .tab-panel {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            &.active {
+                                display: block;
+                            }
+                            .brand-search {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                padding: 0 25px 15px;
+                                select {
+                                    width: 100%;
+                                    padding: 0 3px;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    border-color: #dddddd;
+                                }
+                            }
+                            .none-data {
+                                display: flex;
+                                width: 100%;
+                                height: 100%;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            .data-list {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                overflow: auto;
+                                padding: 0 15px;
+                                li {
+                                    position: relative;
+                                    float: left;
+                                    width: 50%;
+                                    margin: 0 0 10px 0;
+                                    padding: 0 10px;
+                                    .image {
+                                        position: relative;
+                                        display: block;
+                                        width: 100%;
+                                        height: 113px;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        &:hover {
+                                            >a {
+                                                display: flex;
+                                            }
+                                        }
+                                        img {
+                                            display: block;
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                        }
+                                        >a {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            z-index: 100;
+                                            display: none;
+                                            align-items: center;
+                                            justify-content: center;
+                                            color: #ffffff;
+                                            width: 100%;
+                                            height: 100%;
+                                            background: rgba(0, 0, 0, 0.5);
+                                        }
+                                    }
+                                    .intro {
+                                        display: block;
+                                        padding: 5px;
+                                        >span {
+                                            display: block;
+                                            overflow: hidden;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            font-size: 14px;
+                                            text-align: center;
+                                            color: #666666;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .model-detail-intro {
+                        position: absolute;
+                        top: 0;
+                        left: 297px;
+                        z-index: 1000;
+                        display: none;
+                        width: 390px;
+                        padding: 15px;
+                        background: rgba(53, 53, 53, 0.8);
+                        border-radius: 3px;
+                        >label {
+                            display: block;
+                            width: 100%;
+                            color: #ffffff;
+                            height: 26px;
+                            line-height: 26px;
+                            span {
+                                color: #8b8b8b;
+                            }
+                            img {
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                        .image {
+                            height: auto;
+                        }
+                        .text {
+                            height: auto;
+                            line-height: 22px;
+                            font-size: 14px;
+                            margin: 10px 0 5px 0;
+                        }
+                        .price {
+                            color: #f56666;
+                            font-size: 14px;
+                        }
+                    }
+                    .ht-pageing {
+                        position: relative;
+                        top: 10px;
+                        width: 100%;
+                        height: 35px;
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+    .ant-pagination-simple a {
+        background: transparent !important;
+    }
+}
+
+//开始设计右侧操作按钮 
+.editor-right {
+    .d-block;
+    .abs-tr;
+    width: 205px;
+    height: 100%;
+    padding-top: 106px;
+    .container {
+        .d-layer;
+        background: @main-gray;
+        border-left: 1px solid #b3b3b3;
+        .title {
+            .d-width;
+            height: 40px;
+            line-height: 50px;
+            font-size: @s-15;
+            color: @text-color;
+            text-align: center;
+        }
+        .handle {
+            .d-block;
+            width: 160px;
+            margin: 10px auto 0;
+            a {
+                .d-block;
+                width: 50%;
+                float: left;
+                text-align: center;
+                .text-mid(32px);
+                font-size: @s-13;
+                color: #888888;
+                border: 1px solid #5f5f5f;
+                &:first-of-type {
+                    border-radius: 3px 0 0 3px;
+                }
+                &:last-of-type {
+                    border-radius: 0 3px 3px 0;
+                    border-left: 0 none;
+                }
+                &.active {
+                    background: #373737;
+                }
+                i {
+                    .p-rel;
+                    top: 3px;
+                    .d-in-block;
+                    margin-right: 5px;
+                }
+                em {
+                    font-style: normal;
+                }
+            }
+        }
+        .btn-3d {
+            .d-block;
+            width: 160px;
+            margin: 15px auto 0;
+            .e-btn {
+                border: 1px solid #5f5f5f;
+                .text-mid-border(34px);
+            }
+        }
+    }
+}
+
+//图标集合
+.e-icon {
+    &.icon-ppk {
+        width: 25px;
+        height: 24px;
+        background-position: -78px -42px;
+        &.active {
+            background-position: -78px -42px;
+        }
+    }
+    &.icon-ggk {
+        width: 25px;
+        height: 24px;
+        background-position: -43px -43px;
+        &.active {
+            background-position: -43px -9px;
+        }
+    }
+    &.icon-myk {
+        width: 23px;
+        height: 22px;
+        background-position: -10px -42px;
+        &.active {
+            background-position: -10px -10px;
+        }
+    }
+    &.icon-switch {
+        width: 11px;
+        height: 31px;
+        background-position: -10px -172px;
+        &.active {
+            background-position: -31px -172px;
+        }
+    }
+    &.icon-paint {
+        width: 17px;
+        height: 17px;
+        background-position: -10px -101px;
+    }
+    &.icon-handle {
+        width: 11px;
+        height: 17px;
+        background-position: -42px -101px;
+    }
+}
+
+//设置墙高度弹出框
+.modal-setwall {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+
+//弹出框
+.modal-container {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.modal-calibratedSize {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-box {
+    position: relative;
+    display: block;
+    width: 478px;
+    margin: auto;
+    &.big {
+        margin-top: 30px;
+        .fb-form-list .item {
+            padding-left: 130px;
+        }
+        .fb-form-list .item label.title {
+            width: 115px;
+            text-align: left;
+            line-height: 20px;
+            >span {
+                display: block;
+                text-align: right;
+                top: 0;
+                right: 0;
+                font-size: 12px;
+                color: #999;
+            }
+        }
+    }
+    .fb-form-list {
+        .item {
+            padding-left: 110px;
+            margin-bottom: 15px;
+            >label.title {
+                em {
+                    position: relative;
+                    top: 3px;
+                    font-size: 16px;
+                    color: #ff0000;
+                    margin-right: 5px;
+                    font-style: normal;
+                }
+            }
+            .content {
+                position: relative;
+                z-index: 130;
+                div.fb-select-bar {
+                    padding: 0;
+                    width: 310px;
+                }
+                label.form-input {
+                    width: 310px;
+                }
+                label.read-only {
+                    display: inline-block;
+                    line-height: 24px;
+                    padding: 10px 20px 0 0;
+                    font-size: 14px;
+                }
+            }
+            &.btn-box {
+                margin-top: 50px;
+                margin-bottom: 40px;
+                a {
+                    display: inline-block;
+                    float: none;
+                    width: auto;
+                    padding: 0 40px;
+                    margin: 0 30px 0 0;
+                    height: 40px;
+                    line-height: 38px;
+                    border-radius: 3px;
+                    &.cancel {
+                        background: #999;
+                        border: 1px solid #999;
+                        color: #ffffff;
+                    }
+                    &.ensure {
+                        background: #00cccb;
+                        border: 1px solid #00cccb;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+    .zIndex10 {
+        z-index: 10 !important;
+    }
+    .zIndex20 {
+        z-index: 20 !important;
+    }
+    .zIndex30 {
+        z-index: 30 !important;
+    }
+    .zIndex40 {
+        z-index: 40 !important;
+    }
+    .zIndex50 {
+        z-index: 50 !important;
+    }
+    .zIndex60 {
+        z-index: 60 !important;
+    }
+}
+
+//我的方案
+.my-scheme-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 270px;
+    .box {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        &.none {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            >label {
+                display: flex;
+                flex-direction: column;
+                >span {
+                    display: block;
+                    width: 100%;
+                    margin-top: 15px;
+                    font-size: 16px;
+                    color: #666;
+                }
+            }
+        }
+    }
+    .my-scheme-list {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        .item {
+            display: flex;
+            width: 33.33%;
+            padding: 0 10px;
+            a {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                border: 1px solid #ddd;
+                >.image {
+                    display: block;
+                    width: 100%;
+                    height: 200px;
+                    padding: 5px;
+                    border-bottom: 1px solid #ddd;
+                    cursor: pointer;
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                >.intro {
+                    display: block;
+                    width: 100%;
+                    padding: 5px 10px;
+                    background: #f5f5f5;
+                    cursor: pointer;
+                    >span {
+                        display: block;
+                        width: 100%;
+                        font-size: 12px;
+                        color: #999;
+                        margin: 5px 0;
+                        &:first-of-type {
+                            display: -webkit-box !important;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .paging {
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+//临摹
+.my-copyImages-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    .move-container {
+        position: relative;
+        display: block;
+        width: 100%;
+        >label {
+            position: relative;
+            display: block;
+            &.image {
+                width: 100%;
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            &[class*="move-icon"] {
+                position: absolute;
+                top: -30px;
+                cursor: move;
+                span {
+                    position: absolute;
+                    top: -22px;
+                    left: 50%;
+                    margin-left: -35px;
+                    font-size: 14px;
+                    color: #00cccb;
+                    display: block;
+                    height: 22px;
+                    line-height: 22px;
+                    width: 70px;
+                    text-align: center;
+                }
+                &[class*="-left"] {
+                    left: -21px;
+                }
+                &[class*="-right"] {
+                    left: 10px;
+                }
+            }
+        }
+    }
+    img {
+        display: block;
+        pointer-events: none;
+        margin: auto;
+        user-select: none;
+    }
+}
+
+//设置空间信息
+.jBox-space-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 410px;
+    margin: -205px 0 0 -300px;
+    background: transparent !important;
+    .jBox-layout.jBox-layout-shadow {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+    .space-container {
+        position: relative;
+        display: block;
+        width: 100%;
+        >a {
+            display: inline-block;
+            height: 34px;
+            line-height: 32px;
+            font-size: 14px;
+            background: #f5f5f5;
+            color: #666;
+            border: 1px solid #ddd;
+            margin: 10px;
+            width: 88px;
+            text-align: center;
+            border-radius: 3px;
+            &:hover {
+                background: #fff;
+                border: 1px solid #00cccb;
+                color: #00cccb;
+            }
+        }
+    }
+}

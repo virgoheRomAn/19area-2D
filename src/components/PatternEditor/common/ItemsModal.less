@@ -1,0 +1,105 @@
+#body {
+  .items-modal {
+    .ant-modal-body {
+      > header {
+        font-size: 24px;
+        padding: 20px 0;
+        text-align: center;
+        color: @textDarkColor;
+      }
+      > section {
+        width: 736px;
+        > .up-btn {
+          display: flex;
+          justify-content: flex-end;
+          color: @primary-color;
+          font-size: 18px;
+          margin-bottom: 14px;
+          > span {
+            cursor: pointer;
+            user-select: none;
+            .icon {
+              display: inline-block;
+              height: 18px;
+              width: 18px;
+              margin-right: 7px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              vertical-align: text-bottom;
+              position: relative;
+              top: -1px;
+              &[type='upload'] {
+                  background-image: url('../../../images/Pattern/upload.png');
+              }
+            }
+          }
+        }
+        .ant-spin-container {
+          > .items {
+            min-height: 432px;
+            background-color: #fafafa;
+            border: 1px solid @bdColor;
+            border-radius: 2px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            > .tip {
+              margin: auto;
+              font-size: 16px;
+              color: @textGreyColor;
+            }
+            > .item {
+              width: 25%;
+              cursor: pointer;
+              height: 195px;
+              padding: 0 15px;
+              &:hover {
+                > .img > .actions {
+                  opacity: 1;
+                }
+              }
+              > .img {
+                width: 160px;
+                height: 160px;
+                background: #eee no-repeat center;
+                margin-bottom: 10px;
+                position: relative;
+                background-size: cover;
+                > .actions {
+                  width: 100%;
+                  height: 33px;
+                  background-color: rgba(0,0,0,.5);
+                  color: #fff;
+                  position: absolute;
+                  bottom: 0;
+                  transition: all .3s;
+                  opacity: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-around;
+                  > * {
+                    user-select: none;
+                    &:hover {
+                      opacity: .5;
+                    }
+                  }
+                }
+              }
+              > .name {
+                color: @textGreyColor;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+      > footer {
+        display: flex;
+        justify-content: center;
+        padding-top: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.selectportal{
+    background: #fff;
+    /* height: 100px;
+    width: 200px; */
+    border-radius: 6px;
+    position: fixed;
+    top: 500px;
+    left: 400px;
+    box-shadow: 2px 2px 8px rgba(68, 64, 64, 0.3);
+    -webkit-box-shadow: 2px 2px 8px rgba(68, 64, 64, 0.3);
+    font-size: 16px;
+    font-weight: 500;
+    color: #A0A0A0;
+    padding: 10px 10px;
+    
+}

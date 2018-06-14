@@ -1,0 +1,18 @@
+.b_btn{
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    line-height: 1;
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid rgb(217,217,217);
+    cursor: pointer;
+}
+.b_btn:hover{
+    border-color: #00CCCB;
+    color: #00CCCB;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>十九区</title>
+  <script type="text/javascript" src="Native.js"></script>
+</head>
+
+<body id="body">
+  <div id='app'></div>
+  <script>
+    window.onload = function () {
+      const ipcRenderer = require('electron').ipcRenderer;
+      window.shell = require('electron').shell;
+      ipcRenderer.on('asynchronous-reply', function (event, arg) {
+        if (arg) {
+          window.EM.emit('showSave');
+        }
+      });
+      ipcRenderer.on("get3Dmessage", (message) => {
+        window.EM.emit("openToolof3D");
+      });
+      ipcRenderer.on('isChanged', function (event, arg) {
+        ipcRenderer.send('synchronous-message', window.isChanged);
+      });
+      ipcRenderer.on('aisChanged', function (event, arg) {
+        ipcRenderer.send('asynchronous-message', window.isChanged);
+      });
+    }
+  </script>
+</body>
+
+</html>

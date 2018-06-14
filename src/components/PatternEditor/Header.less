@@ -1,0 +1,55 @@
+#patternMainComponent {
+  #mainHeader {
+    background-color: @bgColor;
+    color: #fcfcfc;
+    user-select: none;
+    .ant-tabs-bar {
+      margin: 0;
+      padding: 9px 25px 0 25px;
+    }
+    .ant-tabs-tab {
+      background-color: transparent;
+      color: @titleColor;
+      border: none;
+      &.ant-tabs-tab-active {
+        background-color: @themeColor;
+      }
+    }
+    .ant-tabs-bar {
+      bottom: 0;
+      border: none;
+    }
+    .ant-tabs-content {
+      background-color: @themeColor;
+      color: @textColor;
+      padding: 14px 28px;
+    }
+    .ant-tabs-tabpane {
+      >span {
+        margin-right: 48px;
+        cursor: pointer;
+        font-weight: 300;
+        &:active,&:hover {
+          // opacity: .5;
+          color: #FFF;
+        }
+      }
+    }
+    > .user {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 25px;
+      top: 6px;
+      color: @textColor;
+      > .icon {
+        width: 26px;
+        height: 26px;
+        background: url("../../images/user-icon.png") no-repeat center;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 12px;
+      }
+    }
+  }
+}
